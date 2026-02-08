@@ -53,6 +53,7 @@ class MySQLConnector(BaseConnector):
         filepath = os.path.join(dest_path, filename)
 
         cmd = [
+            "sudo",
             "mysqldump",
             f"--host={self.host}",
             f"--port={self.port}",
@@ -89,6 +90,7 @@ class MySQLConnector(BaseConnector):
             raise FileNotFoundError(f"Backup file not found: {backup_file}")
 
         cmd = [
+            "sudo",
             "mysql",
             f"--host={self.host}",
             f"--port={self.port}",
